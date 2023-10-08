@@ -10,7 +10,7 @@ newsapi = NewsApiClient(api_key=news_key)
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
   userID = message.from_user.id
-  connect = sqlite3.connect('database/bd.db')
+  connect = sqlite3.connect('bd.db')
   cursor = connect.cursor()
   markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
 
@@ -33,7 +33,7 @@ def bot_message(message):
   if message.chat.type == 'private':
     if message.text == 'категории':
       markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-      connect = sqlite3.connect('database/bd.db')
+      connect = sqlite3.connect('bd.db')
       cursor = connect.cursor()
       categories = cursor.execute('SELECT id, name FROM categories;').fetchall()
       print(categories)
@@ -52,7 +52,7 @@ def bot_message(message):
     check = '+ '
     if message.text.startswith(check):
         userID = message.from_user.id
-        connect = sqlite3.connect('database/bd.db')
+        connect = sqlite3.connect('bd.db')
         cursor = connect.cursor()
         id = cursor.execute('SELECT id FROM users WHERE tg_id=?;', (userID,)).fetchone()
         id = str(id[0])
@@ -82,7 +82,7 @@ def bot_message(message):
           if message.text == 'подписки':
               markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
               userID = message.from_user.id
-              connect = sqlite3.connect('database/bd.db')
+              connect = sqlite3.connect('bd.db')
               cursor = connect.cursor()
               id = cursor.execute('SELECT id FROM users WHERE tg_id = ?;', (userID,)).fetchone()
               id = str(id[0])
@@ -107,7 +107,7 @@ def bot_message(message):
         check = "- "
         if message.text.startswith(check):
             userID = message.from_user.id
-            connect = sqlite3.connect('database/bd.db')
+            connect = sqlite3.connect('bd.db')
             cursor = connect.cursor()
             id = cursor.execute('SELECT id FROM users WHERE tg_id = ?;', (userID,)).fetchone()
             id = str(id[0])
@@ -144,7 +144,7 @@ def bot_message(message):
           if message.text == 'новости':
 
               userID = message.from_user.id
-              connect = sqlite3.connect('database/bd.db')
+              connect = sqlite3.connect('bd.db')
               cursor = connect.cursor()
               id = cursor.execute('SELECT id FROM users WHERE tg_id=?;', (userID,)).fetchone()
               id = str(id[0])

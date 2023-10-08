@@ -1,5 +1,5 @@
 from main import *
-connect = sqlite3.connect('database/bd.db')
+connect = sqlite3.connect('bd.db')
 cursor = connect.cursor()
 
 cursor.execute('''CREATE TABLE IF NOT EXISTS "users" ("id" Integer not null, "tg_id" Integer not null, primary key("id" AUTOINCREMENT));''')
