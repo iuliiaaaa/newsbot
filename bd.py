@@ -11,7 +11,7 @@ connect.commit()
 
 # cursor.execute('''INSERT INTO categories (name,value) VALUES ("бизнес", "business")''')
 # cursor.execute('''INSERT INTO categories (name,value) VALUES ("спорт", "sports")''')
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("технологии", "techology")''')
+# cursor.execute('''INSERT INTO categories (name,value) VALUES ("технологии", "technology")''')
 # cursor.execute('''INSERT INTO categories (name,value) VALUES ("главное", "general")''')
 # cursor.execute('''INSERT INTO categories (name,value) VALUES ("развлечение", "entertainment")''')
 # connect.commit()
