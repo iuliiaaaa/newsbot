@@ -2,6 +2,7 @@ import telebot
 from newsapi import NewsApiClient
 from telebot import types
 import sqlite3
+from bd import *
 
 bot = telebot.TeleBot("6359000148:AAEyE6easMVL7pMp3H2K_NnL_N9BmczAtDA", parse_mode=None)
 news_key = 'fa26ad0dfe444a55955c5b6208e61e2e'
