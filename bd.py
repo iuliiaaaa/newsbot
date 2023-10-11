@@ -1,5 +1,5 @@
-# from main import *
-import sqlite3
+from main import *
+# import sqlite3
 connect = sqlite3.connect('bd.db')
 cursor = connect.cursor()
 
@@ -17,14 +17,3 @@ if category == None:
     for i in arr:
         cursor.execute('''INSERT INTO categories (name, value) VALUES (?, ?);''',(i[0], i[1]))
         connect.commit()
-
-
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("бизнес", "business")''')
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("спорт", "sports")''')
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("технологии", "technology")''')
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("главное", "general")''')
-# cursor.execute('''INSERT INTO categories (name,value) VALUES ("развлечение", "entertainment")''')
-# connect.commit()
-# arr_ru = ['бизнес', 'спорт', 'технологии', 'главное', 'развлечение']
-# arr_eng = ['business', 'sports', 'technology', "general", 'entertainment']
-

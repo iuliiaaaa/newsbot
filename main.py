@@ -2,7 +2,7 @@ import telebot
 from newsapi import NewsApiClient
 from telebot import types
 import sqlite3
-from bd import *
+# from bd import *
 
 bot = telebot.TeleBot("6359000148:AAEyE6easMVL7pMp3H2K_NnL_N9BmczAtDA", parse_mode=None)
 news_key = 'fa26ad0dfe444a55955c5b6208e61e2e'
@@ -56,7 +56,7 @@ def bot_message(message):
         connect = sqlite3.connect('bd.db')
         cursor = connect.cursor()
         id = cursor.execute('SELECT id FROM users WHERE tg_id=?;', (userID,)).fetchone()
-        id = str(id[0])
+        id = str(id)
         sub = cursor.execute('SELECT * FROM subscribes INNER JOIN categories ON categories.id = subscribes.category_id WHERE user_id = ?;',(id,)).fetchall()
         arr_subscribes = []
         i = 0
@@ -86,7 +86,7 @@ def bot_message(message):
               connect = sqlite3.connect('bd.db')
               cursor = connect.cursor()
               id = cursor.execute('SELECT id FROM users WHERE tg_id = ?;', (userID,)).fetchone()
-              id = str(id[0])
+              id = str(id)
               sub = cursor.execute('SELECT * FROM subscribes INNER JOIN categories ON categories.id = subscribes.category_id WHERE user_id = ?;',(id,)).fetchall()
               arr_subscribes = []
               i = 0
@@ -111,7 +111,7 @@ def bot_message(message):
             connect = sqlite3.connect('bd.db')
             cursor = connect.cursor()
             id = cursor.execute('SELECT id FROM users WHERE tg_id = ?;', (userID,)).fetchone()
-            id = str(id[0])
+            id = str(id)
             name_category = message.text[2:]
             category_id = cursor.execute('SELECT id FROM categories WHERE name = ?;', (name_category,)).fetchall()
             category_id = category_id[0][0]
@@ -148,7 +148,7 @@ def bot_message(message):
               connect = sqlite3.connect('bd.db')
               cursor = connect.cursor()
               id = cursor.execute('SELECT id FROM users WHERE tg_id=?;', (userID,)).fetchone()
-              id = str(id[0])
+              id = str(id)
               sub = cursor.execute('SELECT * FROM subscribes INNER JOIN categories ON categories.id = subscribes.category_id WHERE user_id = ?;',(id,)).fetchall()
               i = 0
               while i < len(sub):
